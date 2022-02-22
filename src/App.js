@@ -135,7 +135,7 @@ function App() {
 
         </div>
         <div class="slidecontainer col-3">
-          <label for="customRange1" class="form-label">Speed</label>
+          <label for="customRange1" class="form-label">Speed: {gameSpeed}</label>
           <input type="range" step="1" min="1" max="100" class="form-range" id="customRange1" onChange={e => setGameSpeed(e.target.value)}/>
         </div>
       </div>
