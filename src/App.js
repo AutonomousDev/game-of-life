@@ -1,7 +1,10 @@
 import logo from './logo.svg';
-import './App.css';
 import React, { useCallback, useState, useRef } from "react";
 import produce from 'immer';
+
+import Container from 'react-bootstrap/Container';
+// Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Global config variables
 const numRows = 50;
@@ -78,9 +81,11 @@ function App() {
   }, []) 
 
   return (
-    <>
+    <Container>
       {/** If not running button says start, else it says stop */}
+      <div class="mt-2 mb-2">
       <button
+        class="btn btn-success m-1"
         onClick={() => {
           setRunning(!running);
           if (!running) {
@@ -93,6 +98,7 @@ function App() {
       </button>
 
       <button
+      class="btn btn-outline-danger m-1"
       onClick={() => {
         setGrid(generateEmptyGrid());
       }}
@@ -101,6 +107,7 @@ function App() {
       </button>
 
       <button
+      class="btn btn-outline-warning m-1"
       onClick={() => {
         const rows = []; 
         for (let i=0; i < numRows; i++){
@@ -112,7 +119,7 @@ function App() {
       >
         Random
       </button>
-
+      </div>
       <div style={{
         display: "grid",
         gridTemplateColumns: `repeat(${numCols}, 20px)`
@@ -139,7 +146,7 @@ function App() {
         )}
 
       </div>
-    </>
+    </Container>
   );
 }
 
