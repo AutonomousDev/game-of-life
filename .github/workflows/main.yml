@@ -1,0 +1,23 @@
+name: Deploy to Dokku Server
+
+on:
+  push:
+    branches:
+      - main 
+  workflow_dispatch: # this allows a manual trigger of deploys as well
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Push to dokku
+        uses: dokku/github-action@master
+        with:
+          branch: 'main' # the branch on the Dokku server to deploy to
+          git_remote_url: ${{ secrets.DOKKU_GIT_REMOTE_URL}}
+          ssh_private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
