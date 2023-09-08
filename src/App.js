@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const numRows = 50;
 const numCols = 50;
 
+// Bigger numbers are slowers
 const gameSpeedConstant = 1000;
 //
 function Example() {
